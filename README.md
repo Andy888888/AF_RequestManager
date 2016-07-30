@@ -23,8 +23,8 @@ BaseApi的协议，规范了凡遵守该协议的Api对象都拥有`getBaseHeade
 * `getRequestMethod`用来配置该请求方式，目前设置了两种模式，用enum枚举RequestMethod来区分，可返回`RequestMethodPOST`（Post请求）或者`RequestMethodGET`（Get请求）,其他的请求方式后期补充。<br><br><br>
 
 ### 3.AbsApi abstract抽象类
-请求抽象类，遵守了AbsApiDelegate协议，标识凡继承AbsApi的对象都拥有getRootUrl和getPath方法<br>
-内部添加了`getReqUrl`和`getTimeOut`方法。用来返回一个完整的请求Url地址，和返回超时时间。<br><br><br>
+请求抽象类，遵守了`AbsApiDelegate`协议，标识凡继承AbsApi的对象都拥有`getRootUrl`和 `getPath`方法<br>
+内部添加了`getReqUrl`和`getTimeOut`方法。分别用来返回一个完整的请求Url地址，和返回超时时间。<br><br><br>
 
 
 ### 4.BaseApi abstract抽象类

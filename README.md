@@ -2,12 +2,13 @@
 ###### Base AFNetworking Core Network Request Framework
 
 ## 结构概览
-    ### 1.AbsApiDelegate
-    1.BaseApiDelegate
-    2.AbsApi
-    3.BaseApi
-    4.BaseServiceManager
-    5.RequestManager
+    1.AbsApiDelegate
+    ----------------
+    2.BaseApiDelegate
+    3.AbsApi
+    4.BaseApi
+    5.BaseServiceManager
+    6.RequestManager
 
 ## 详解
 ### 1.AbsApiDelegate Protocal协议

@@ -20,13 +20,13 @@
 
 - (void)sendRequest:(AbsApi<BaseApiDelegate>*)api
            sucBlock:(ResponseSuccessBlock)sucBlock
-           falBlock:(ResponseFailureBlock)failBlock;
+           failBlock:(ResponseFailureBlock)failBlock;
 {
     int requestMethod = [api getRequestMethod];
     if(requestMethod == RequestMethodPOST){
-        [self postRequest:api sucBlock:sucBlock falBlock:failBlock];
+        [self postRequest:api sucBlock:sucBlock failBlock:failBlock];
     }else{
-        [self getRequest:api sucBlock:sucBlock falBlock:failBlock];
+        [self getRequest:api sucBlock:sucBlock failBlock:failBlock];
     }
 }
 
@@ -56,7 +56,7 @@
 
 - (void)postRequest:(AbsApi<BaseApiDelegate>*)api
            sucBlock:(ResponseSuccessBlock)sucBlock
-           falBlock:(ResponseFailureBlock)failBlock;
+           failBlock:(ResponseFailureBlock)failBlock;
 {
     NSString *requestUrl = [api getReqUrl];
     NSDictionary *bodyDic = [api getBaseBody];
@@ -87,7 +87,7 @@
 
 - (void)getRequest:(AbsApi<BaseApiDelegate>*)api
           sucBlock:(ResponseSuccessBlock)sucBlock
-          falBlock:(ResponseFailureBlock)failBlock;
+          failBlock:(ResponseFailureBlock)failBlock;
 {
     NSString *requestUrl = [api getReqUrl];
     NSDictionary *paramDic = [api getBaseBody];

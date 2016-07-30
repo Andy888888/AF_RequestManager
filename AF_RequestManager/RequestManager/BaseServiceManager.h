@@ -25,7 +25,7 @@ typedef void (^ResponseFailureBlock)(NSError *error);
 /// 使用block方式发送数据请求；api：发送参数，sucBlock：成功回调，failBlock：失败回调
 - (void)sendRequest:(AbsApi<BaseApiDelegate>*)api
            sucBlock:(ResponseSuccessBlock)sucBlock
-           falBlock:(ResponseFailureBlock)failBlock;
+           failBlock:(ResponseFailureBlock)failBlock;
 - (AFHTTPSessionManager *)createAFHttpManagerForApi:(AbsApi<BaseApiDelegate>*)api;
 //- (void)cancelAllRequest;
 

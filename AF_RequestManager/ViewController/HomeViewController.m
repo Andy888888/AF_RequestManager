@@ -44,7 +44,7 @@
         DepartmentModel *depart = perUser.PermUserInfos[0];
         [self alert:depart.identify.uName];
         
-    } falBlock:^(NSError *error) {
+    } failBlock:^(NSError *error) {
         
     }];
 }

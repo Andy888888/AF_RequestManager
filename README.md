@@ -1,5 +1,6 @@
 # AF_RequestManager
-![Logo](https://raw.githubusercontent.com/Andy888888/AF_RequestManager/master/AF_RequestManager/Assets.xcassets/AppIcon.appiconset/network_80.png "AF_RequestManager 图标")###### Base AFNetworking Core Network Request Framework
+###### Base AFNetworking Core Network Request Framework
+![Logo](https://raw.githubusercontent.com/Andy888888/AF_RequestManager/master/AF_RequestManager/Assets.xcassets/AppIcon.appiconset/network_58.png "AF_RequestManager 图标")<br><br>
 
 
 ## 结构概览

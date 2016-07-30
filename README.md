@@ -23,8 +23,13 @@ BaseApi的协议，规范了凡遵守该协议的Api对象都拥有`getBaseHeade
 * `getRequestMethod`用来配置该请求方式，目前设置了两种模式，用enum枚举RequestMethod来区分，可返回`RequestMethodPOST`（Post请求）或者`RequestMethodGET`（Get请求）,其他的请求方式后期补充。<br><br><br>
 
 ### 3.AbsApi abstract抽象类
+请求抽象类，遵守了AbsApiDelegate协议，标识凡继承AbsApi的对象都拥有getRootUrl和getPath方法<br>
+内部添加了`getReqUrl`和`getTimeOut`方法。用来返回一个完整的请求Url地址，和返回超时时间。<br><br><br>
+
 
 ### 4.BaseApi abstract抽象类
+请求基类，遵守了`BaseApiDelegate`协议，标识凡继承AbsApi的对象都拥有`getBaseHeader`, `getBaseBody`和`getRequestMethod`方法。
+目前内部只是实现了`getRequestMethod`方法默认采用Post`(RequestMethodPOST)`请求方式。<br><br><br>
 
 ### 5.BaseServiceManager
 用来使用AFNetWorking发送请求，只是个管理者，本身并不具备发送请求能力；目前依赖于AFNetWorking来发送网络请求；在内部封装了一些默认创建`AFHTTPSessionManager`的方法。
@@ -38,6 +43,16 @@ BaseApi的协议，规范了凡遵守该协议的Api对象都拥有`getBaseHeade
 
 ### 6.RequestManager
 继承自BaseServiceManager；设计此Manager主要目的是，后期不采用AFNetWorking时，可在本类的发送方法sendRequest...中切换其他第三方请求框架即可，而不需要项目中到处修改AFNetWorking请求为其他方式请求，同时担任着控制第三方请求的角色；因此，即使看不惯本类，也不要修改；另外，本类增加了Protocal回调数据方式请求。
+```Object-C
+/// ResponseDelegate 数据响应回调协议
+@property (nonatomic,assign) id<ResponseDelegate> delegate;
+
++ (id)initManagerWithDelegate:(id<ResponseDelegate>)delegate;
+/// 发送数据请求，参数为继承AbsApi抽象类，且遵守BaseApiDelegate协议 的对象
+- (void)sendRequest:(AbsApi<BaseApiDelegate>*)api;
+```
+我们可以直接使用`initManagerWithDelegate:`方法来初始化RequestManager对象，将数据回调协议delegate传入。<br>
+使用`sendRequest:`方法来发送请求，同父类一致，api参数为继承AbsApi抽象类，且遵守`BaseApiDelegate`协议的对象。而上述`BaseApi`就符合这一点，而BaseApi如果不符合你的口味，你可以来自定义一个继承AbsApi又遵守BaseApiDelegate协议的对象。
     
 
 

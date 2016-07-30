@@ -1,6 +1,6 @@
 # AF_RequestManager
 ###### Base AFNetworking Core Network Request Framework
-![baidu](https://raw.githubusercontent.com/Andy888888/AF_RequestManager/master/AF_RequestManager/Assets.xcassets/AppIcon.appiconset/network_180.png"百度logo") <br><br>
+![Logo](https://raw.githubusercontent.com/Andy888888/AF_RequestManager/master/AF_RequestManager/Assets.xcassets/AppIcon.appiconset/network_180.png "AF_RequestManager 图标") <br><br>
 
 ## 结构概览
     1.AbsApiDelegate

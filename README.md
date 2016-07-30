@@ -10,8 +10,8 @@
     5.RequestManager
 
 ## 详解
-    #### 1.｀AbsApiDelegate｀
-    AbsApi的协议，规范了凡遵守该协议的Api对象都拥有｀getRootUrl｀,`getPath`,`getRespClass`方法。这种设计方式借鉴了Java，C#语法的Abstract抽象类
+#### 1.AbsApiDelegate
+        AbsApi的协议，规范了凡遵守该协议的Api对象都拥有`getRootUrl`,`getPath`,`getRespClass`方法。这种设计方式借鉴了Java，C#语法的Abstract抽象类
     
 
 

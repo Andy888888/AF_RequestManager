@@ -28,7 +28,7 @@
 @property (nonatomic,assign) id<ResponseDelegate> delegate;
 
 + (id)initManagerWithDelegate:(id<ResponseDelegate>)delegate;
-/// 发送数据请求，参数为继承AbsApi基类，且遵守BaseApiDelegate协议 的对象
+/// 发送数据请求，参数为继承AbsApi抽象类，且遵守BaseApiDelegate协议 的对象
 - (void)sendRequest:(AbsApi<BaseApiDelegate>*)api;
 
 @end

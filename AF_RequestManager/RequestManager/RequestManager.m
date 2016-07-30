@@ -45,7 +45,9 @@
              NSLog(@"%@",uploadProgress);
          } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              //请求成功
-             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                 options:NSJSONReadingAllowFragments
+                                                                   error:nil];
              if (self.delegate) {
                  [self.delegate respSuc:dic andRespClass:cls];
              }
@@ -75,7 +77,9 @@
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             //请求成功
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                options:NSJSONReadingAllowFragments
+                                                                  error:nil];
             if (self.delegate) {
                 [self.delegate respSuc:dic andRespClass:cls];
             }

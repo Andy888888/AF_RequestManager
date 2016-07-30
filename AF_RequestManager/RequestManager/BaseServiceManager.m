@@ -70,7 +70,9 @@
          } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              NSLog(@"%@",task);
              //请求成功
-             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                 options:NSJSONReadingAllowFragments
+                                                                   error:nil];
              if (sucBlock) {
                  sucBlock(dic);
              }
@@ -98,7 +100,9 @@
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             //请求成功
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                options:NSJSONReadingAllowFragments
+                                                                  error:nil];
             if (sucBlock) {
                 sucBlock(dic);
             }

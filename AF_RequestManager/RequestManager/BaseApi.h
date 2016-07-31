@@ -6,11 +6,11 @@
 //  Copyright © 2016年 燕文强. All rights reserved.
 //
 
+#import "ApiDelegate.h"
 #import "AbsApi.h"
-#import "BaseApiDelegate.h"
 
-/// BaseApi 请求基类，遵守了BaseApiDelegate协议，标识凡继承AbsApi的对象都拥有getBaseHeader, getBaseBody和getRequestMethod方法
+/// BaseApi 请求基类，继承自AbsApi，且遵守了ApiDelegate协议
 /// @warning 请不要随便修改
-@interface BaseApi : AbsApi<BaseApiDelegate>
+@interface BaseApi : AbsApi<ApiDelegate>
 
 @end

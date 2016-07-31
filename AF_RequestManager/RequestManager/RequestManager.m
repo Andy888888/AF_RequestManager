@@ -17,7 +17,7 @@
     return manager;
 }
 
-- (void)sendRequest:(AbsApi<BaseApiDelegate>*)api
+- (void)sendRequest:(AbsApi<ApiDelegate>*)api
 {
     int requestMethod = [api getRequestMethod];
     if(requestMethod == RequestMethodPOST){
@@ -28,10 +28,10 @@
 }
 
 
-- (void)postRequest:(AbsApi<BaseApiDelegate>*)api
+- (void)postRequest:(AbsApi<ApiDelegate>*)api
 {
     NSString *requestUrl = [api getReqUrl];
-    NSDictionary *bodyDic = [api getBaseBody];
+    NSDictionary *bodyDic = [api getReqBody];
     Class cls = [api getRespClass];
     
     NSLog(@"********[请求地址：%@]",requestUrl);
@@ -60,19 +60,15 @@
          }];
 }
 
-- (void)getRequest:(AbsApi<BaseApiDelegate>*)api
+- (void)getRequest:(AbsApi<ApiDelegate>*)api
 {
-    NSString *requestUrl = [api getReqUrl];
-    NSDictionary *paramDic = [api getBaseBody];
+    NSString *requestUrl = [self getReqGetUrl:api];
     Class cls = [api getRespClass];
-    
     NSLog(@"********[请求地址：%@]",requestUrl);
-    NSLog(@"********[请求参数：%@]",paramDic);
     
     AFHTTPSessionManager *manager = [self createAFHttpManagerForApi:api];
-    
     [manager GET:requestUrl
-      parameters:paramDic
+      parameters:nil
         progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

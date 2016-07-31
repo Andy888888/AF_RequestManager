@@ -7,24 +7,30 @@
 //
 
 #import "GetUserPermissionApi.h"
-#import "BaseApiDelegate.h"
 
 @implementation GetUserPermissionApi
-
-- (NSDictionary *)getBaseBody
-{
-    return [self getBaseFieldWithOthers:@{@"UserNumbers":_staffNos}];
-}
 
 -(NSString *)getPath
 {
     return @"WebApiPermisstion/get_user_permisstion";
 }
 
+- (NSDictionary *)getHeader
+{
+    return nil;
+}
+
+- (NSDictionary *)getBody
+{
+    return @{@"UserNumbers":_staffNos};
+}
+
 - (Class)getRespClass
 {
     return [PermUserEntity class];
 }
+
+
 
 
 @end

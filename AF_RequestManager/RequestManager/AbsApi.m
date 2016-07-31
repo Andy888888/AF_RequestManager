@@ -10,36 +10,37 @@
 
 @implementation AbsApi
 
-/// 完整的请求url
-- (NSString *)getReqUrl
-{
-    NSString *reqUrl = [NSString stringWithFormat:@"%@%@",[self getRootUrl],[self getPath]];
-    return reqUrl;
-}
-
-/// 设置超时时间，默认10秒
-- (int)getTimeOut
-{
-    return 10;
-}
-
-/// @warning rootUrl默认为nil
+#pragma mark - 实现方法
 - (NSString *)getRootUrl
 {
     return nil;
 }
-
-/// @warning path默认为nil
 - (NSString *)getPath
+{
+    return nil;
+}
+
+- (NSMutableDictionary *)getBaseHeader
+{
+    return nil;
+}
+- (NSDictionary *)getHeader
+{
+    return nil;
+}
+
+- (NSMutableDictionary *)getBaseBody
+{
+    return nil;
+}
+- (NSDictionary *)getBody
 {
     return nil;
 }
 
 - (Class)getRespClass
 {
-    return nil;
+    return  nil;
 }
-
-
 
 @end

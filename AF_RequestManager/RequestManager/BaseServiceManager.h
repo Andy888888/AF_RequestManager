@@ -6,9 +6,9 @@
 //  Copyright © 2016年 燕文强. All rights reserved.
 //
 
-#import "BaseApiDelegate.h"
-#import "AFHTTPSessionManager.h"
+#import "ApiDelegate.h"
 #import "AbsApi.h"
+#import "AFHTTPSessionManager.h"
 
 /// 请求响应成功的block
 typedef void (^ResponseSuccessBlock)(id result);
@@ -23,10 +23,10 @@ typedef void (^ResponseFailureBlock)(NSError *error);
 + (id)initManager;
 
 /// 使用block方式发送数据请求；api：发送参数，sucBlock：成功回调，failBlock：失败回调
-- (void)sendRequest:(AbsApi<BaseApiDelegate>*)api
+- (void)sendRequest:(AbsApi<ApiDelegate>*)api
            sucBlock:(ResponseSuccessBlock)sucBlock
            failBlock:(ResponseFailureBlock)failBlock;
-- (AFHTTPSessionManager *)createAFHttpManagerForApi:(AbsApi<BaseApiDelegate>*)api;
-//- (void)cancelAllRequest;
+- (AFHTTPSessionManager *)createAFHttpManagerForApi:(AbsApi<ApiDelegate>*)api;
+- (NSString *)getReqGetUrl:(AbsApi<ApiDelegate>*)api;
 
 @end

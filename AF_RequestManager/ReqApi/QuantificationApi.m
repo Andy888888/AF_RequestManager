@@ -7,19 +7,15 @@
 //
 
 #import "QuantificationApi.h"
-#import "BaseApiDelegate.h"
 
 @implementation QuantificationApi
 
-//请求体参数
-- (NSDictionary *)getBaseBody
+- (NSDictionary *)getBody
 {
-    return [self getBaseFieldWithOthers:@{
-                                   @"DepartmentKeyId":_departKeyid,
-                                   @"EndDate":_endDate,
-                                   @"StartDate":_startDate,
-                                   @"UserKeyId":_userKeyId
-                                   }];
+    return @{@"DepartmentKeyId":_departKeyid,
+             @"EndDate":_endDate,
+             @"StartDate":_startDate,
+             @"UserKeyId":_userKeyId};
 }
 
 -(NSString *)getPath

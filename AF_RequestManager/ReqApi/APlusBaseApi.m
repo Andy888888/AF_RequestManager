@@ -21,8 +21,7 @@
     return nil;
 }
 
-
-- (NSMutableDictionary *)getBaseFieldMapping
+- (NSMutableDictionary *)getBaseBody
 {
     NSMutableDictionary *mdic = [[NSMutableDictionary alloc]initWithDictionary:@{
                                                                                  @"IsMobileRequest":@"YES"
@@ -30,11 +29,14 @@
     return mdic;
 }
 
-- (NSMutableDictionary *)getBaseFieldWithOthers:(NSDictionary *)dic
+- (int)getTimeOut
 {
-    NSMutableDictionary *mdic = [self getBaseFieldMapping];
-    [mdic addEntriesFromDictionary:dic];
-    return mdic;
+    return 10;
+}
+
+- (int)getRequestMethod
+{
+    return RequestMethodPOST;
 }
 
 @end

@@ -25,6 +25,8 @@
 		80186CE31D4BA3010036AE32 /* SubBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 80186CDC1D4BA3010036AE32 /* SubBaseModel.m */; };
 		80186CE61D4BA36B0036AE32 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80186CE51D4BA36B0036AE32 /* HomeViewController.m */; };
 		80186CE91D4BA76F0036AE32 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80186CE81D4BA76F0036AE32 /* SecondViewController.m */; };
+		80186CEC1D4CFCE00036AE32 /* PokemonBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 80186CEB1D4CFCE00036AE32 /* PokemonBaseApi.m */; };
+		80186CEF1D4CFE9C0036AE32 /* PokemonPositionApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 80186CEE1D4CFE9C0036AE32 /* PokemonPositionApi.m */; };
 		8082B1501D4B9F3600243D53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8082B14F1D4B9F3600243D53 /* main.m */; };
 		8082B1531D4B9F3600243D53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8082B1521D4B9F3600243D53 /* AppDelegate.m */; };
 		8082B1591D4B9F3600243D53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8082B1571D4B9F3600243D53 /* Main.storyboard */; };
@@ -60,7 +62,7 @@
 		80186CAC1D4BA22E0036AE32 /* AbsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsApi.m; sourceTree = "<group>"; };
 		80186CAD1D4BA22E0036AE32 /* BaseApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseApi.h; sourceTree = "<group>"; };
 		80186CAE1D4BA22E0036AE32 /* BaseApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseApi.m; sourceTree = "<group>"; };
-		80186CAF1D4BA22E0036AE32 /* BaseApiDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseApiDelegate.h; sourceTree = "<group>"; };
+		80186CAF1D4BA22E0036AE32 /* ApiDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDelegate.h; sourceTree = "<group>"; };
 		80186CB01D4BA22E0036AE32 /* BaseServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseServiceManager.h; sourceTree = "<group>"; };
 		80186CB11D4BA22E0036AE32 /* BaseServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseServiceManager.m; sourceTree = "<group>"; };
 		80186CB21D4BA22E0036AE32 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
@@ -93,6 +95,10 @@
 		80186CE51D4BA36B0036AE32 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		80186CE71D4BA76F0036AE32 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		80186CE81D4BA76F0036AE32 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		80186CEA1D4CFCE00036AE32 /* PokemonBaseApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonBaseApi.h; sourceTree = "<group>"; };
+		80186CEB1D4CFCE00036AE32 /* PokemonBaseApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonBaseApi.m; sourceTree = "<group>"; };
+		80186CED1D4CFE9C0036AE32 /* PokemonPositionApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonPositionApi.h; sourceTree = "<group>"; };
+		80186CEE1D4CFE9C0036AE32 /* PokemonPositionApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonPositionApi.m; sourceTree = "<group>"; };
 		8082B14B1D4B9F3600243D53 /* AF_RequestManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AF_RequestManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8082B14F1D4B9F3600243D53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8082B1511D4B9F3600243D53 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,7 +152,7 @@
 		80186CAA1D4BA22E0036AE32 /* RequestManager */ = {
 			isa = PBXGroup;
 			children = (
-				80186CAF1D4BA22E0036AE32 /* BaseApiDelegate.h */,
+				80186CAF1D4BA22E0036AE32 /* ApiDelegate.h */,
 				80186CAB1D4BA22E0036AE32 /* AbsApi.h */,
 				80186CAC1D4BA22E0036AE32 /* AbsApi.m */,
 				80186CAD1D4BA22E0036AE32 /* BaseApi.h */,
@@ -186,10 +192,14 @@
 			children = (
 				80186CC41D4BA2F10036AE32 /* APlusBaseApi.h */,
 				80186CC51D4BA2F10036AE32 /* APlusBaseApi.m */,
+				80186CEA1D4CFCE00036AE32 /* PokemonBaseApi.h */,
+				80186CEB1D4CFCE00036AE32 /* PokemonBaseApi.m */,
 				80186CC61D4BA2F10036AE32 /* GetUserPermissionApi.h */,
 				80186CC71D4BA2F10036AE32 /* GetUserPermissionApi.m */,
 				80186CC81D4BA2F10036AE32 /* QuantificationApi.h */,
 				80186CC91D4BA2F10036AE32 /* QuantificationApi.m */,
+				80186CED1D4CFE9C0036AE32 /* PokemonPositionApi.h */,
+				80186CEE1D4CFE9C0036AE32 /* PokemonPositionApi.m */,
 			);
 			path = ReqApi;
 			sourceTree = "<group>";
@@ -483,6 +493,7 @@
 				80186CE91D4BA76F0036AE32 /* SecondViewController.m in Sources */,
 				80186CCC1D4BA2F10036AE32 /* QuantificationApi.m in Sources */,
 				80186CB61D4BA22E0036AE32 /* BaseServiceManager.m in Sources */,
+				80186CEF1D4CFE9C0036AE32 /* PokemonPositionApi.m in Sources */,
 				80186CCB1D4BA2F10036AE32 /* GetUserPermissionApi.m in Sources */,
 				80186CBD1D4BA26C0036AE32 /* BaseViewController.m in Sources */,
 				80186CB51D4BA22E0036AE32 /* BaseApi.m in Sources */,
@@ -496,6 +507,7 @@
 				80186CC21D4BA2970036AE32 /* DataConvert.m in Sources */,
 				80186CCA1D4BA2F10036AE32 /* APlusBaseApi.m in Sources */,
 				80186CE31D4BA3010036AE32 /* SubBaseModel.m in Sources */,
+				80186CEC1D4CFCE00036AE32 /* PokemonBaseApi.m in Sources */,
 				8082B1501D4B9F3600243D53 /* main.m in Sources */,
 				80186CE11D4BA3010036AE32 /* OperatorValPermisstionModel.m in Sources */,
 				80186CB41D4BA22E0036AE32 /* AbsApi.m in Sources */,

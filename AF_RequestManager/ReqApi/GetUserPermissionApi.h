@@ -6,7 +6,6 @@
 //  Copyright © 2016年 燕文强. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "APlusBaseApi.h"
 #import "PermUserEntity.h"
 

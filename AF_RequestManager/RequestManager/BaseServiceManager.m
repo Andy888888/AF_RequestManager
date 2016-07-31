@@ -18,7 +18,7 @@
 }
 
 
-- (void)sendRequest:(AbsApi<BaseApiDelegate>*)api
+- (void)sendRequest:(AbsApi<ApiDelegate>*)api
            sucBlock:(ResponseSuccessBlock)sucBlock
            failBlock:(ResponseFailureBlock)failBlock;
 {
@@ -30,7 +30,7 @@
     }
 }
 
-- (AFHTTPSessionManager *)createAFHttpManagerForApi:(AbsApi<BaseApiDelegate>*)api
+- (AFHTTPSessionManager *)createAFHttpManagerForApi:(AbsApi<ApiDelegate>*)api
 {
     int timeOut = [api getTimeOut];
     
@@ -44,9 +44,34 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     //设置Header
-    [self setHeader:manager withDic:api.getBaseHeader];
+    [self setHeader:manager withDic:[api getReqHeader]];
     
     return manager;
+}
+
+- (NSString *)getReqGetUrl:(AbsApi<ApiDelegate>*)api
+{
+    NSString *reqUrl = [api getReqUrl];
+    NSDictionary *paramDic = [api getBody];
+    
+    NSArray *keys = [paramDic allKeys];
+    NSInteger count = keys.count;
+    if(count > 0)
+    {
+        reqUrl = [NSString stringWithFormat:@"%@?",reqUrl];
+        for (NSInteger i = 0; i < count; i++)
+        {
+            if(i != 0)
+            {
+                reqUrl = [NSString stringWithFormat:@"%@&",reqUrl];
+            }
+            NSString *curKey = keys[i];
+            NSString *curValue = [paramDic objectForKey:curKey];
+            reqUrl = [NSString stringWithFormat:@"%@%@=%@",reqUrl,curKey,curValue];
+        }
+    }
+    
+    return reqUrl;
 }
 
 
@@ -54,12 +79,12 @@
 
 #pragma mark - 私有方法
 
-- (void)postRequest:(AbsApi<BaseApiDelegate>*)api
+- (void)postRequest:(AbsApi<ApiDelegate>*)api
            sucBlock:(ResponseSuccessBlock)sucBlock
            failBlock:(ResponseFailureBlock)failBlock;
 {
     NSString *requestUrl = [api getReqUrl];
-    NSDictionary *bodyDic = [api getBaseBody];
+    NSDictionary *bodyDic = [api getReqBody];
     
     AFHTTPSessionManager *manager = [self createAFHttpManagerForApi:api];
     
@@ -85,17 +110,16 @@
          }];
 }
 
-- (void)getRequest:(AbsApi<BaseApiDelegate>*)api
+- (void)getRequest:(AbsApi<ApiDelegate>*)api
           sucBlock:(ResponseSuccessBlock)sucBlock
           failBlock:(ResponseFailureBlock)failBlock;
 {
-    NSString *requestUrl = [api getReqUrl];
-    NSDictionary *paramDic = [api getBaseBody];
+    NSString *requestUrl = [self getReqGetUrl:api];
+    NSLog(@"********[请求地址：%@]",requestUrl);
     
     AFHTTPSessionManager *manager = [self createAFHttpManagerForApi:api];
-    
     [manager GET:requestUrl
-      parameters:paramDic
+      parameters:nil
         progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

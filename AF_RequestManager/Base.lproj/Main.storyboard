@@ -31,10 +31,20 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="跳转页面"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="160" y="367" width="80" height="30"/>
+                                    <rect key="frame" x="160" y="415" width="80" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="turnPageBtn_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBU-cS-W9W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3Q-ip-GxT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Pokemon位置获取"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="132" y="352" width="136" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="getPokemonPos_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVu-sr-kSV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,12 +53,14 @@
                             <mask key="subviews">
                                 <exclude reference="s60-sH-Ih7"/>
                                 <exclude reference="iFj-un-BOM"/>
+                                <exclude reference="t3Q-ip-GxT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="s60-sH-Ih7"/>
                                 <include reference="iFj-un-BOM"/>
+                                <include reference="t3Q-ip-GxT"/>
                             </mask>
                         </variation>
                     </view>

@@ -9,10 +9,12 @@
 #import "HomeViewController.h"
 #import "GetUserPermissionApi.h"
 #import "SecondViewController.h"
+#import "PokemonPositionApi.h"
 
 @interface HomeViewController ()
 {
     GetUserPermissionApi *_permApi;
+    PokemonPositionApi *_pokemonPosApi;
 }
 
 @end
@@ -30,6 +32,12 @@
 - (IBAction)turnPageBtn_click:(id)sender {
     SecondViewController *vc = [[SecondViewController alloc] init];
     [self presentViewController:vc animated:YES completion:^{}];
+}
+- (IBAction)getPokemonPos_click:(id)sender {
+    _pokemonPosApi = [PokemonPositionApi new];
+    [_pokemonPosApi setUser:@"Andy"];
+    [_pokemonPosApi setPwd:@"123"];
+    [_manager sendRequest:_pokemonPosApi];
 }
 
 #pragma mark - 私有方法
@@ -68,8 +76,17 @@
         PermUserEntity *perUser = [DataConvert convertDic:data toEntity:cls];
         DepartmentModel *depart = perUser.PermUserInfos[0];
         [self alert:depart.identify.uName];
+    }else{
+        NSLog(@"%@",data);
     }
 }
+
+
+
+
+
+
+
 
 - (void)respFail:(NSError *)error
 {

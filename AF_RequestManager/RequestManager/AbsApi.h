@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseApiDelegate.h"
 
 /// RequestMethod 请求方式枚举
 /// @warning 请不要随便修改
@@ -19,13 +18,31 @@ enum RequestMethod
     RequestMethodGET = 2
 };
 
-/// AbsApi 请求抽象类，遵守了AbsApiDelegate协议，标识凡继承AbsApi的对象都拥有getRootUrl和getPath方法
+/// AbsApi 请求抽象类
 /// @warning 请不要随便修改
-@interface AbsApi : NSObject<AbsApiDelegate>
+@interface AbsApi : NSObject
 
-/// 完整的请求url
-- (NSString *)getReqUrl;
-/// 设置超时时间
-- (int)getTimeOut;
+/// 请求域名url
+/// @warning 默认为nil，遵守实现者必须实现
+- (NSString *)getRootUrl;
+/// 请求url后半部分
+/// @warning 默认为nil，遵守实现者必须实现
+- (NSString *)getPath;
+/// 基本header
+/// @warning 默认为nil，若有每个请求必填的header字段，请实现此方法
+- (NSMutableDictionary *)getBaseHeader;
+/// 基本header以外的请求header
+/// @warning 默认为nil，遵守实现者必须实现
+- (NSDictionary *)getHeader;
+/// 基本body
+/// @warning 默认为nil，若有每个请求必填的body字段，请实现此方法
+- (NSMutableDictionary *)getBaseBody;
+/// 基本body以外的请求body
+/// @warning 默认为nil，遵守实现者必须实现
+- (NSDictionary *)getBody;
+
+/// 请求返回数据实体Class
+/// @warning 默认为nil，用来区分返回来的数据类型，以及指定序列化dic为实体对象的class类型
+- (Class)getRespClass;
 
 @end

@@ -10,24 +10,34 @@
 
 @implementation BaseApi
 
-#pragma mark - AbsApiDelegate 重写
+#pragma mark - ApiDelegate 重写
 
-- (NSString *)getRootUrl
+/// 请求url
+/// @warning 默认url为nil
+- (NSString *)getReqUrl
 {
-    return nil;
+    NSString *reqUrl = [NSString stringWithFormat:@"%@%@",[self getRootUrl],[self getPath]];
+    return reqUrl;
 }
 
+/// 请求header
+/// @warning 默认header为nil
+- (NSDictionary *)getReqHeader
+{
+    NSMutableDictionary *reqHeader = [self getBaseHeader];
+    [reqHeader addEntriesFromDictionary:[self getHeader]];
+    return reqHeader;
+}
 
-#pragma mark - BaseApiDelegate 必须实现
-
-/*  虽然是必须实现，但是在BaseApi中却是可选实现的  */
-
-/// 请求基础body
+/// 请求body
 /// @warning 默认body为nil
-- (NSDictionary *)getBaseBody
+- (NSDictionary *)getReqBody
 {
-    return nil;
+    NSMutableDictionary *reqBody = [self getBaseBody];
+    [reqBody addEntriesFromDictionary:[self getBody]];
+    return reqBody;
 }
+
 /// 请求方式
 /// @warning 默认方式为Post（RequestMethodPOST）
 - (int)getRequestMethod
@@ -35,25 +45,16 @@
     return RequestMethodPOST;
 }
 
+/// 请求超时时间
+/// @warning 默认超时时间为5秒
+- (int)getTimeOut
+{
+    return 5;
+}
 
-#pragma mark - BaseApiDelegate 可选实现
-
-/*  虽然是可选，但是在BaseApi中却是必须实现的  */
-
-/// 请求基础header
-/// @warning 默认header为nil
-- (NSDictionary *)getBaseHeader
+- (Class)getRespClass
 {
     return nil;
 }
-
-
-
-
-
-
-
-
-
 
 @end

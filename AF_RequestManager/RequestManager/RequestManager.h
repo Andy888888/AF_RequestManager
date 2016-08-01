@@ -15,7 +15,7 @@
 /// 响应成功
 - (void)respSuc:(id)data andRespClass:(id)cls;
 /// 响应失败
-- (void)respFail:(NSError *)error;
+- (void)respFail:(NSError *)error andRespClass:(id)cls;
 
 @end
 

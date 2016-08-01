@@ -67,7 +67,7 @@
     [self alert:@"请求数据响应成功！"];
 }
 
-- (void)respFail:(NSError *)error{
+- (void)respFail:(NSError *)error andRespClass:(id)cls{
     NSLog(@"%@",error);
 }
 

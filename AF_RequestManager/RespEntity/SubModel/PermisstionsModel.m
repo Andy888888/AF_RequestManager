@@ -19,7 +19,6 @@
              @"departmentKeyIds":@"DepartmentKeyIds",
              @"rightUpdateTime":@"RightUpdateTime",
              };
-    
 }
 
 +(NSValueTransformer *)operatorValPermisstionJSONTransformer

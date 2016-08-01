@@ -55,7 +55,7 @@
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              //请求失败
              if (self.delegate) {
-                 [self.delegate respFail:error];
+                 [self.delegate respFail:error andRespClass:cls];
              }
          }];
 }
@@ -83,7 +83,7 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             //请求失败
             if (self.delegate) {
-                [self.delegate respFail:error];
+                [self.delegate respFail:error andRespClass:cls];
             }
         }];
 }

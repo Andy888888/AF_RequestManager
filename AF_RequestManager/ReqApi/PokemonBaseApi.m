@@ -15,15 +15,6 @@
     return @"https://pokevision.com/";
 }
 
-- (NSMutableDictionary *)getBaseHeader
-{
-    return nil;
-}
-
-- (NSMutableDictionary *)getBaseBody
-{
-    return nil;
-}
 
 - (int)getTimeOut
 {

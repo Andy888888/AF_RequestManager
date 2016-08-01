@@ -39,7 +39,7 @@
 - (void)respSuc:(id)data andRespClass:(id)cls
 {
 }
-- (void)respFail:(NSError *)error
+- (void)respFail:(NSError *)error andRespClass:(id)cls
 {
 }
 

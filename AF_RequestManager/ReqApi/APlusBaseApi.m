@@ -15,11 +15,11 @@
     return @"http://10.5.10.42:9016/api/";
 }
 
-- (NSDictionary *)getBaseHeader
-{
-    // 项目中根据实际情况来设置
-    return nil;
-}
+//- (NSMutableDictionary *)getBaseHeader
+//{
+//    // 项目中根据实际情况来设置
+//    return nil;
+//}
 
 - (NSMutableDictionary *)getBaseBody
 {

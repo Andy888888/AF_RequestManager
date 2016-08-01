@@ -22,7 +22,7 @@
 
 - (NSMutableDictionary *)getBaseHeader
 {
-    return nil;
+    return [NSMutableDictionary dictionary];
 }
 - (NSDictionary *)getHeader
 {
@@ -31,7 +31,7 @@
 
 - (NSMutableDictionary *)getBaseBody
 {
-    return nil;
+    return [NSMutableDictionary dictionary];
 }
 - (NSDictionary *)getBody
 {

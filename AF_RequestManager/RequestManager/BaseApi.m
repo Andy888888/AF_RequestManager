@@ -57,4 +57,9 @@
     return nil;
 }
 
+- (NSString *)getTag
+{
+    return nil;
+}
+
 @end

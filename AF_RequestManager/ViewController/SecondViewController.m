@@ -61,13 +61,14 @@
 
 #pragma mark - 数据返回 ResponseDelegate
 
-- (void)respSuc:(id)data andRespClass:(id)cls
+- (void)respSuc:(id)data andRespApi:(id)respApi
 {
     NSLog(@"第二个界面返回数据：%@",data);
     [self alert:@"请求数据响应成功！"];
 }
 
-- (void)respFail:(NSError *)error andRespClass:(id)cls{
+- (void)respFail:(NSError *)error andRespApi:(id)respApi
+{
     NSLog(@"%@",error);
 }
 

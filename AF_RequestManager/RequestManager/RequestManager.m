@@ -32,7 +32,7 @@
 {
     NSString *requestUrl = [api getReqUrl];
     NSDictionary *bodyDic = [api getReqBody];
-    Class cls = [api getRespClass];
+//    Class cls = [api getRespClass];
     
     NSLog(@"********[请求地址：%@]",requestUrl);
     NSLog(@"********[请求参数：%@]",bodyDic);
@@ -49,13 +49,13 @@
                                                                  options:NSJSONReadingAllowFragments
                                                                    error:nil];
              if (self.delegate) {
-                 [self.delegate respSuc:dic andRespClass:cls];
+                 [self.delegate respSuc:dic andRespApi:api];
              }
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              //请求失败
              if (self.delegate) {
-                 [self.delegate respFail:error andRespClass:cls];
+                 [self.delegate respFail:error andRespApi:api];
              }
          }];
 }
@@ -63,7 +63,6 @@
 - (void)getRequest:(AbsApi<ApiDelegate>*)api
 {
     NSString *requestUrl = [self getReqGetUrl:api];
-    Class cls = [api getRespClass];
     NSLog(@"********[请求地址：%@]",requestUrl);
     
     AFHTTPSessionManager *manager = [self createAFHttpManagerForApi:api];
@@ -77,13 +76,13 @@
                                                                 options:NSJSONReadingAllowFragments
                                                                   error:nil];
             if (self.delegate) {
-                [self.delegate respSuc:dic andRespClass:cls];
+                [self.delegate respSuc:dic andRespApi:api];
             }
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             //请求失败
             if (self.delegate) {
-                [self.delegate respFail:error andRespClass:cls];
+                [self.delegate respFail:error andRespApi:api];
             }
         }];
 }

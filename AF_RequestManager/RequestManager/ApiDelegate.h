@@ -29,5 +29,7 @@
 /// 请求超时时间
 /// @warning 默认超时时间为5秒
 - (int)getTimeOut;
+/// 请求Tag
+- (NSString *)getTag;
 
 @end

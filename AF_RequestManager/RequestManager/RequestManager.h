@@ -13,9 +13,9 @@
 @protocol ResponseDelegate <NSObject>
 
 /// 响应成功
-- (void)respSuc:(id)data andRespClass:(id)cls;
+- (void)respSuc:(id)data andRespApi:(id)respApi;
 /// 响应失败
-- (void)respFail:(NSError *)error andRespClass:(id)cls;
+- (void)respFail:(NSError *)error andRespApi:(id)respApi;
 
 @end
 

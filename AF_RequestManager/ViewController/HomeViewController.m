@@ -68,8 +68,11 @@
 #pragma mark - 网络请求结果 ResponseDelegate
 //在项目中保证该回调放在文件最底部
 
-- (void)respSuc:(id)data andRespClass:(id)cls
+- (void)respSuc:(id)data andRespApi:(id)respApi
 {
+    BaseApi *api = respApi;
+    Class cls = [api getRespClass];
+    
     if([cls isEqual:[PermUserEntity class]])
     {
         NSLog(@"第一个界面返回数据：%@",data);
@@ -88,7 +91,7 @@
 
 
 
-- (void)respFail:(NSError *)error andRespClass:(id)cls
+- (void)respFail:(NSError *)error andRespApi:(id)respApi
 {
 }
 

@@ -6,6 +6,8 @@
 //  Copyright © 2016年 燕文强. All rights reserved.
 //
 
+// Andy888888/AF_RequestManager
+
 #import "RequestManager.h"
 
 @implementation RequestManager
